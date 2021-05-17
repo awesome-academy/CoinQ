@@ -1,2 +1,0 @@
-# CoinQ
-QuyenLN
