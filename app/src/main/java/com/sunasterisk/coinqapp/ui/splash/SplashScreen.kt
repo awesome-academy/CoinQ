@@ -1,10 +1,16 @@
 package com.sunasterisk.coinqapp.ui.splash
 
 import android.os.Handler
+import android.widget.Toast
 import com.sunasterisk.coinqapp.base.BaseActivity
-import com.sunasterisk.coinqapp.databinding.ActivityMainBinding
+import com.sunasterisk.coinqapp.data.model.Coin
+import com.sunasterisk.coinqapp.data.source.CoinDataSource
+import com.sunasterisk.coinqapp.data.source.remote.CoinRemoteDataSource
+import com.sunasterisk.coinqapp.data.source.remote.api.RequestCoins
 import com.sunasterisk.coinqapp.databinding.SplashActivityBinding
 import com.sunasterisk.coinqapp.ui.MainActivity
+import com.sunasterisk.coinqapp.utils.OnLoadDataCallBack
+import java.lang.Exception
 
 class SplashScreen : BaseActivity<SplashActivityBinding>() {
 
