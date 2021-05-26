@@ -17,26 +17,26 @@ data class Coin(
     val id: String,
     val symbol: String,
     val image : String,
-    val price: Int,
+    val price: Double,
     val dayChange: Double,
-    val marketCap: Int,
+    val marketCap: Long,
     val rank : Int,
     val volume : Int,
-    val high : Int,
-    val low : Int,
-    val maxHigh : Int,
+    val high : Double,
+    val low : Double,
+    val maxHigh : Double,
 ) {
     constructor(jsonObject: JSONObject) : this (
         jsonObject.getString(COIN_ID),
         jsonObject.getString(COIN_SYMBOL),
         jsonObject.getString(COIN_IMAGE),
-        jsonObject.getInt(COIN_PRICE),
+        jsonObject.getDouble(COIN_PRICE),
         jsonObject.getDouble(DAY_CHANGE),
-        jsonObject.getInt(MARKET_CAP),
+        jsonObject.getLong(MARKET_CAP),
         jsonObject.getInt(COIN_RANK),
         jsonObject.getInt(COIN_VOLUME),
-        jsonObject.getInt(COIN_HIGH),
-        jsonObject.getInt(COIN_LOW),
-        jsonObject.getInt(COIN_MAX_HIGH)
+        jsonObject.getDouble(COIN_HIGH),
+        jsonObject.getDouble(COIN_LOW),
+        jsonObject.getDouble(COIN_MAX_HIGH)
     )
 }

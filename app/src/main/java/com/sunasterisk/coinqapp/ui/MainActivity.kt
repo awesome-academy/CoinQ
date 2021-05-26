@@ -21,7 +21,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val settingFragment = SettingFragment()
 
     override fun createView() {
-        setSupportActionBar(binding.toolbar)
         binding.bottomNavigation.apply {
             setOnNavigationItemSelectedListener(onNavigationSelectedListener)
             selectedItemId = R.id.menu_market
