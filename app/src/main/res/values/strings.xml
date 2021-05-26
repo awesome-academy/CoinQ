@@ -5,4 +5,10 @@
     <string name="action_search">Search</string>
     <string name="action_setting">Setting</string>
     <string name="error_parse_json">Fail to Parse Json</string>
+    <string name="text_coin">Coin</string>
+    <string name="text_price">Price</string>
+    <string name="text_24_hours">24 Hours</string>
+    <string name="text_market_cap">Market Cap</string>
+    <string name="text_exchange_volume">Volume : </string>
+
 </resources>

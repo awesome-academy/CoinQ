@@ -19,5 +19,5 @@ object ExchangeConstant {
     const val EXCHANGE_NAME = "name"
     const val EXCHANGE_IMAGE = "image"
     const val EXCHANGE_VOLUME = "trade_volume_24h_btc"
-    const val EXCHANGE_RANK = "trust_score_rank"
+    const val EXCHANGE_TRUST = "trust_score"
 }

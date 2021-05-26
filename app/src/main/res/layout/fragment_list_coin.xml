@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textCoin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_coin"
+                android:gravity="end"
+                app:layout_constraintHorizontal_weight="0.15"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_price"
+                android:gravity="center"
+                app:layout_constraintHorizontal_weight="0.3"
+                app:layout_constraintBottom_toBottomOf="@+id/textCoin"
+                app:layout_constraintEnd_toStartOf="@+id/TextViewChange"
+                app:layout_constraintStart_toEndOf="@+id/textCoin"
+                app:layout_constraintTop_toTopOf="@+id/textCoin" />
+
+            <TextView
+                android:id="@+id/TextViewChange"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_24_hours"
+                android:gravity="center"
+                app:layout_constraintHorizontal_weight="0.15"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
+                app:layout_constraintEnd_toStartOf="@+id/textViewMarket"
+                app:layout_constraintStart_toEndOf="@+id/textViewPrice"
+                app:layout_constraintTop_toTopOf="@+id/textViewPrice" />
+
+            <TextView
+                android:id="@+id/textViewMarket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_market_cap"
+                android:gravity="center"
+                app:layout_constraintHorizontal_weight="0.4"
+                app:layout_constraintBottom_toBottomOf="@+id/TextViewChange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/TextViewChange"
+                app:layout_constraintTop_toTopOf="@+id/TextViewChange" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCoins"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layoutAnimation="@anim/layout_anim_fall_down"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
