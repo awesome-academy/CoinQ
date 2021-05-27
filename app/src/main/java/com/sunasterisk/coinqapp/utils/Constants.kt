@@ -21,3 +21,8 @@ object ExchangeConstant {
     const val EXCHANGE_VOLUME = "trade_volume_24h_btc"
     const val EXCHANGE_TRUST = "trust_score"
 }
+
+object RequestConstant{
+    const val REQUEST_PERPAGE = 150
+    const val REQUEST_PAGE = 1
+}
