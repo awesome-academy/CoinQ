@@ -2,6 +2,7 @@ package com.sunasterisk.coinqapp.utils
 
 object CoinConstant {
     const val COIN_ID = "id"
+    const val COIN_NAME = "name"
     const val COIN_SYMBOL = "symbol"
     const val COIN_IMAGE = "image"
     const val COIN_PRICE = "current_price"
@@ -12,6 +13,8 @@ object CoinConstant {
     const val COIN_HIGH = "high_24h"
     const val COIN_LOW = "low_24h"
     const val COIN_MAX_HIGH = "ath"
+    const val SPARKLINE_WEEK = "sparkline_in_7d"
+    const val SPARKLINE_PRICE = "price"
 }
 
 object ExchangeConstant {
@@ -23,6 +26,6 @@ object ExchangeConstant {
 }
 
 object RequestConstant{
-    const val REQUEST_PERPAGE = 150
+    const val REQUEST_PERPAGE = 100
     const val REQUEST_PAGE = 1
 }

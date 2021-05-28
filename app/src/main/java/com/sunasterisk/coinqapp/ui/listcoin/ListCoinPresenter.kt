@@ -38,7 +38,7 @@ class ListCoinPresenter(
     companion object {
         const val REQUEST_VSCURRENCY = "usd"
         const val REQUEST_ORDER = "market_cap_desc"
-        const val REQUEST_SPARKLINE = false
+        const val REQUEST_SPARKLINE = true
         const val REQUEST_DAYCHANGE = "24h"
     }
 }

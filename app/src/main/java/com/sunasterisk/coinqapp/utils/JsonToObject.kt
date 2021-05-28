@@ -16,3 +16,10 @@ inline fun <reified T> JSONArray.parseJsonToObject() = this.run {
     }
 }
 
+fun JSONArray.parseToArray(): List<Double> {
+    val array = mutableListOf<Double>()
+    for (i in 0 until length()) {
+        array.add(getDouble(i))
+    }
+    return array
+}
