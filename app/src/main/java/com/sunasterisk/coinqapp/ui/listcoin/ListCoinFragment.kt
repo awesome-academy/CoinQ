@@ -1,11 +1,14 @@
 package com.sunasterisk.coinqapp.ui.listcoin
 
+import com.sunasterisk.coinqapp.R
 import com.sunasterisk.coinqapp.base.BaseFragment
 import com.sunasterisk.coinqapp.data.model.Coin
 import com.sunasterisk.coinqapp.data.repository.CoinRepository
 import com.sunasterisk.coinqapp.data.source.remote.CoinRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentListCoinBinding
+import com.sunasterisk.coinqapp.ui.coindetail.CoinDetailFragment
 import com.sunasterisk.coinqapp.ui.listcoin.adapter.ListCoinAdapter
+import com.sunasterisk.coinqapp.utils.addFragment
 import com.sunasterisk.coinqapp.utils.showMessage
 
 class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContract.View {
@@ -16,7 +19,9 @@ class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContra
     override val binding by lazy { FragmentListCoinBinding.inflate(layoutInflater) }
 
     override fun initViews() {
-        binding.recyclerCoins.adapter = adapter
+        binding.apply {
+            recyclerCoins.adapter = adapter
+        }
         presenter =
             ListCoinPresenter(this, CoinRepository.getInstance(CoinRemoteDataSource.getInstance()))
         presenter?.getListCoin()
@@ -40,5 +45,13 @@ class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContra
     }
 
     private fun itemCoinClick(coin: Coin) {
+        parentFragment?.apply {
+            addFragment(
+                parentFragmentManager,
+                R.id.frameContainer,
+                CoinDetailFragment.getInstance(coin)
+            )
+        }
     }
 }
+
