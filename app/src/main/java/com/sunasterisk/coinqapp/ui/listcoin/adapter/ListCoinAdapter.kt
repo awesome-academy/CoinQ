@@ -7,6 +7,9 @@ import com.sunasterisk.coinqapp.base.BaseAdapter
 import com.sunasterisk.coinqapp.base.BaseViewHolder
 import com.sunasterisk.coinqapp.data.model.Coin
 import com.sunasterisk.coinqapp.databinding.ItemCoinBinding
+import com.sunasterisk.coinqapp.utils.Pattern.PATTERN_TEXT_MARKET
+import com.sunasterisk.coinqapp.utils.Pattern.PATTERN_TEXT_PRICE
+import com.sunasterisk.coinqapp.utils.Pattern.PATTERN_TEX_DAY
 import com.sunasterisk.coinqapp.utils.loadImage
 import java.text.DecimalFormat
 
@@ -33,21 +36,18 @@ class ListCoinAdapter(private val onItemClick: (Coin) -> Unit) :
                 itemData.apply {
                     textCoinName.text = symbol
                     textDayChange.apply {
-                        text = DecimalFormat(PATTEN_TEX_DAY).format(dayChange / 100)
-                        if (dayChange >= 0) setTextColor(this.resources.getColor(R.color.green_bot_nav))
-                        else setTextColor(this.resources.getColor(R.color.color_pomegranate))
+                        text = DecimalFormat(PATTERN_TEX_DAY).format(dayChange / 100)
+                        if (dayChange >= 0) {
+                            setTextColor(resources.getColor(R.color.green_bot_nav))
+                        } else {
+                            setTextColor(resources.getColor(R.color.color_pomegranate))
+                        }
                     }
-                    textPrice.text = DecimalFormat(PATTEN_TEXT_PRICE).format(price)
-                    textMarketCap.text = DecimalFormat(PATTEN_TEXT_MARKET).format(marketCap)
+                    textPrice.text = DecimalFormat(PATTERN_TEXT_PRICE).format(price)
+                    textMarketCap.text = DecimalFormat(PATTERN_TEXT_MARKET).format(marketCap)
                     imageCoin.loadImage(image)
                 }
             }
-        }
-
-        companion object {
-            const val PATTEN_TEX_DAY = "#0.00%"
-            const val PATTEN_TEXT_PRICE = "$###,###.####"
-            const val PATTEN_TEXT_MARKET = "$###,###,##0"
         }
     }
 }

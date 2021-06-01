@@ -26,6 +26,5 @@ object APIConstant {
 
     const val FILTER_DAYS = "days"
     const val FILTER_INTERVAL = "interval"
-
-
+    const val OHLC = "ohlc"
 }

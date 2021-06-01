@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="@dimen/dp_10">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/viewHeader"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_100"
+            android:background="@drawable/back_ground_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textCoinPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/viewHeader"
+            app:layout_constraintTop_toTopOf="@id/viewHeader" />
+
+        <TextView
+            android:id="@+id/textDayChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textCoinPrice"
+            app:layout_constraintStart_toEndOf="@id/textCoinPrice"
+            app:layout_constraintTop_toTopOf="@id/textCoinPrice" />
+
+        <TextView
+            android:id="@+id/textCoinSymbol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textSize="@dimen/sp_15"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+            app:layout_constraintEnd_toStartOf="@id/textSingleCoin"
+            app:layout_constraintStart_toStartOf="@id/viewHeader"
+            app:layout_constraintTop_toBottomOf="@id/textCoinPrice" />
+
+        <TextView
+            android:id="@+id/textSingleCoin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/text_number_one"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+            app:layout_constraintEnd_toStartOf="@id/imageExchange"
+            app:layout_constraintStart_toEndOf="@id/textCoinSymbol"
+            app:layout_constraintTop_toBottomOf="@id/textCoinPrice" />
+
+        <ImageView
+            android:id="@+id/imageExchange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/exchange"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+            app:layout_constraintEnd_toEndOf="@id/viewHeader"
+            app:layout_constraintStart_toStartOf="@id/viewHeader"
+            app:layout_constraintTop_toBottomOf="@id/textCoinPrice" />
+
+        <TextView
+            android:id="@+id/textUSD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/text_usd"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+            app:layout_constraintEnd_toStartOf="@id/textTotalUSD"
+            app:layout_constraintStart_toEndOf="@id/imageExchange"
+            app:layout_constraintTop_toBottomOf="@id/textCoinPrice" />
+
+        <TextView
+            android:id="@+id/textTotalUSD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+            app:layout_constraintEnd_toEndOf="@id/viewHeader"
+            app:layout_constraintStart_toEndOf="@id/textUSD"
+            app:layout_constraintTop_toBottomOf="@id/textCoinPrice" />
+
+        <com.github.mikephil.charting.charts.CandleStickChart
+            android:id="@+id/coinChart"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_260"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewHeader" />
+
+        <View
+            android:id="@+id/viewTitle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_360"
+            android:background="@drawable/back_ground_description"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coinChart" />
+
+        <TextView
+            android:id="@+id/textRank"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/text_market_cap_rank"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintEnd_toStartOf="@id/textRankNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toTopOf="@id/viewTitle" />
+
+        <TextView
+            android:id="@+id/textRankNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textRank"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textRank"
+            app:layout_constraintTop_toTopOf="@id/textRank" />
+
+        <TextView
+            android:id="@+id/textMarketCap"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_market_cap"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textMarketNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textRank" />
+
+        <TextView
+            android:id="@+id/textMarketNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textMarketCap"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textMarketCap"
+            app:layout_constraintTop_toTopOf="@id/textMarketCap" />
+
+        <TextView
+            android:id="@+id/textVolume"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_trading_volume"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textVolumeNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textMarketCap" />
+
+        <TextView
+            android:id="@+id/textVolumeNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textVolume"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textVolume"
+            app:layout_constraintTop_toTopOf="@id/textVolume" />
+
+        <TextView
+            android:id="@+id/textDayHigh"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_day_high"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textDayHighNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textVolume" />
+
+        <TextView
+            android:id="@+id/textDayHighNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textDayHigh"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textDayHigh"
+            app:layout_constraintTop_toTopOf="@id/textDayHigh" />
+
+        <TextView
+            android:id="@+id/textDayLow"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="@string/text_day_low"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textDayLowNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textDayHigh" />
+
+        <TextView
+            android:id="@+id/textDayLowNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textDayLow"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textDayLow"
+            app:layout_constraintTop_toTopOf="@id/textDayLow" />
+
+        <TextView
+            android:id="@+id/textMaxHigh"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_max_high"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textMaxHighNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textDayLow" />
+
+        <TextView
+            android:id="@+id/textMaxHighNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textMaxHigh"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textMaxHigh"
+            app:layout_constraintTop_toTopOf="@id/textMaxHigh" />
+
+        <TextView
+            android:id="@+id/textMaxLow"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_max_low"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textMaxLowNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textMaxHigh" />
+
+        <TextView
+            android:id="@+id/textMaxLowNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textMaxLow"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textMaxLow"
+            app:layout_constraintTop_toTopOf="@id/textMaxLow" />
+
+        <TextView
+            android:id="@+id/textTotal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_total_supply"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textTotalNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textMaxLow" />
+
+        <TextView
+            android:id="@+id/textTotalNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textTotal"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textTotal"
+            app:layout_constraintTop_toTopOf="@id/textTotal" />
+
+        <TextView
+            android:id="@+id/textMaxSupply"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_max_supply"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textMaxSupplyNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textTotal" />
+
+        <TextView
+            android:id="@+id/textMaxSupplyNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textMaxSupply"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textMaxSupply"
+            app:layout_constraintTop_toTopOf="@id/textMaxSupply" />
+
+        <TextView
+            android:id="@+id/textCurrent"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@string/text_current_supply"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/textCurrentNumber"
+            app:layout_constraintStart_toStartOf="@id/viewTitle"
+            app:layout_constraintTop_toBottomOf="@id/textMaxSupply" />
+
+        <TextView
+            android:id="@+id/textCurrentNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="end"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintBottom_toBottomOf="@id/textCurrent"
+            app:layout_constraintEnd_toEndOf="@id/viewTitle"
+            app:layout_constraintStart_toEndOf="@id/textCurrent"
+            app:layout_constraintTop_toTopOf="@id/textCurrent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

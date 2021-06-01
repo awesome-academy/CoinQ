@@ -20,6 +20,7 @@ import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_SPARK_
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_TICKER
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_USD
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.MARKET
+import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.OHLC
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.SCHEME
 
 object APIQuery {
@@ -50,6 +51,17 @@ object APIQuery {
         .appendQueryParameter(FILTER_DEV_DATA, requestCoinDetail.dev.toString())
         .toString()
 
+    fun queryCoinChart(coinId: String, moneyExchange: String, days: Int) = Uri.Builder().scheme(SCHEME)
+        .authority(BASE_URL)
+        .appendPath(API_CONTENT)
+        .appendPath(API_VER)
+        .appendPath(COIN)
+        .appendPath(coinId)
+        .appendPath(OHLC)
+        .appendQueryParameter(FILTER_USD, moneyExchange)
+        .appendQueryParameter(FILTER_DAYS, days.toString())
+        .toString()
+
     fun queryExchanges(perPage: Int, page: Int) = Uri.Builder().scheme(SCHEME)
         .authority(BASE_URL)
         .appendPath(API_CONTENT)
@@ -65,14 +77,5 @@ object APIQuery {
         .appendPath(API_VER)
         .appendPath(EXCHANGE)
         .appendQueryParameter(FILTER_ID, id)
-        .toString()
-
-    fun queryExchangeChart(id: String, days: Int) = Uri.Builder().scheme(SCHEME)
-        .authority(BASE_URL)
-        .appendPath(API_CONTENT)
-        .appendPath(API_VER)
-        .appendPath(EXCHANGE)
-        .appendQueryParameter(FILTER_ID, id)
-        .appendQueryParameter(FILTER_DAYS, days.toString())
         .toString()
 }

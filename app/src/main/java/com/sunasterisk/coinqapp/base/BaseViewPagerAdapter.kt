@@ -8,7 +8,7 @@ class BaseViewPagerAdapter(
     private val fragments : List<Fragment>,
     private val titles : List<String>,
     fm: FragmentManager,
-    behavior: Int
+    behavior: Int = BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 ) : FragmentPagerAdapter(fm, behavior) {
 
     override fun getCount() = fragments.size

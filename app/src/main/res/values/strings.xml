@@ -10,5 +10,17 @@
     <string name="text_24_hours">24 Hours</string>
     <string name="text_market_cap">Market Cap</string>
     <string name="text_exchange_volume">Volume : </string>
-
+    <string name="text_usd">USD</string>
+    <string name="text_number_one">1</string>
+    <string name="text_market_cap_rank">Market Cap Rank</string>
+    <string name="text_trading_volume">Trading Volume</string>
+    <string name="text_day_high">24h High</string>
+    <string name="text_day_low">24h Low</string>
+    <string name="text_max_high">All Time High</string>
+    <string name="text_max_low">All Time Low</string>
+    <string name="text_total_supply">Total Supply</string>
+    <string name="text_max_supply">Max Supply</string>
+    <string name="text_current_supply">Circulating Supply</string>
+    <string name="menu_tab_price">Price Chart</string>
+    <string name="menu_tab_info">Information</string>
 </resources>
