@@ -49,7 +49,7 @@ class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContra
             addFragment(
                 parentFragmentManager,
                 R.id.frameContainer,
-                CoinDetailFragment.getInstance(coin)
+                CoinDetailFragment.newInstance(coin)
             )
         }
     }

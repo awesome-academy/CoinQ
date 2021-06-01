@@ -50,7 +50,7 @@ class ListExchangeFragment : BaseFragment<FragmentListExchangeBinding>(),
             addFragment(
                 parentFragmentManager,
                 R.id.frameContainer,
-                ExchangeDetailFragment.getInstance(exchange)
+                ExchangeDetailFragment.newInstance(exchange)
             )
         }
     }

@@ -39,7 +39,7 @@ class ExchangeDetailFragment : BaseFragment<FragmentExchangeDetailBinding>() {
     companion object {
         private const val BUNDLE_EXCHANGE = "BUNDLE_EXCHANGE"
 
-        fun getInstance(exchange: Exchange) = ExchangeDetailFragment().apply {
+        fun newInstance(exchange: Exchange) = ExchangeDetailFragment().apply {
             arguments = bundleOf(BUNDLE_EXCHANGE to exchange)
         }
     }
