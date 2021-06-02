@@ -1,6 +1,7 @@
 package com.sunasterisk.coinqapp.data.source.remote
 
 import com.sunasterisk.coinqapp.data.model.Coin
+import com.sunasterisk.coinqapp.data.model.CoinEntry
 import com.sunasterisk.coinqapp.data.source.CoinDataSource
 import com.sunasterisk.coinqapp.data.source.remote.api.APIQuery
 import com.sunasterisk.coinqapp.data.source.remote.api.RequestCoins
@@ -18,8 +19,25 @@ class CoinRemoteDataSource private constructor() : CoinDataSource.Remote {
         }.execute()
     }
 
+    override fun getCoinChart(
+        coinId: String,
+        moneyExchange: String,
+        days: Int,
+        callBack: OnLoadDataCallBack<List<CoinEntry>>
+    ) {
+        LoadDataAsyncTask(callBack) {
+            getCoinChart(coinId, moneyExchange, days)
+        }.execute()
+    }
+
     private fun getCoins(requestCoins: RequestCoins): List<Coin> {
         val jsonString = getJsonFromUrl(APIQuery.queryCoins(requestCoins))
+        val jsonArray = JSONArray(jsonString)
+        return jsonArray.parseJsonToObject()
+    }
+
+    private fun getCoinChart(coinId: String, moneyExchange: String, days: Int): List<CoinEntry> {
+        val jsonString = getJsonFromUrl(APIQuery.queryCoinChart(coinId, moneyExchange, days))
         val jsonArray = JSONArray(jsonString)
         return jsonArray.parseJsonToObject()
     }

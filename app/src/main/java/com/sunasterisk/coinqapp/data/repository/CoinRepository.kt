@@ -1,6 +1,7 @@
 package com.sunasterisk.coinqapp.data.repository
 
 import com.sunasterisk.coinqapp.data.model.Coin
+import com.sunasterisk.coinqapp.data.model.CoinEntry
 import com.sunasterisk.coinqapp.data.source.CoinDataSource
 import com.sunasterisk.coinqapp.data.source.remote.api.RequestCoins
 import com.sunasterisk.coinqapp.utils.OnLoadDataCallBack
@@ -11,6 +12,15 @@ class CoinRepository private constructor(
 
     override fun getCoins(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<List<Coin>>) =
         remote.getCoins(requestCoins, callBack)
+
+    override fun getCoinChart(
+        coinId: String,
+        moneyExchange: String,
+        days: Int,
+        callBack: OnLoadDataCallBack<List<CoinEntry>>
+    ) {
+        remote.getCoinChart(coinId, moneyExchange, days, callBack)
+    }
 
     companion object {
         private var instance: CoinRepository? = null
