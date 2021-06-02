@@ -1,10 +1,19 @@
 <resources>
     <string name="app_name">CoinQ</string>
+
     <string name="action_market">Market</string>
     <string name="action_favorite">Favorite</string>
     <string name="action_search">Search</string>
     <string name="action_setting">Setting</string>
+
     <string name="error_parse_json">Fail to Parse Json</string>
+    <string name="error_get_data">Can Not Get Data</string>
+
+    <string name="menu_tab_price">Price Chart</string>
+    <string name="menu_tab_info">Information</string>
+
+    <string name="msg_please_wait">Please Wait</string>
+
     <string name="text_coin">Coin</string>
     <string name="text_price">Price</string>
     <string name="text_24_hours">24 Hours</string>
@@ -21,6 +30,11 @@
     <string name="text_total_supply">Total Supply</string>
     <string name="text_max_supply">Max Supply</string>
     <string name="text_current_supply">Circulating Supply</string>
-    <string name="menu_tab_price">Price Chart</string>
-    <string name="menu_tab_info">Information</string>
+    <string name="text_home_page">Home Page</string>
+    <string name="text_block_chain">Block Chain</string>
+    <string name="text_forum">Discussion Forum</string>
+    <string name="text_year_establish">Year Establish</string>
+    <string name="text_facebook">FaceBook</string>
+    <string name="text_redis">Redis</string>
+
 </resources>

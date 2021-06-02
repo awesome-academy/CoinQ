@@ -1,5 +1,7 @@
 package com.sunasterisk.coinqapp.ui.listcoin
 
+import android.os.Handler
+import android.os.Looper
 import com.sunasterisk.coinqapp.R
 import com.sunasterisk.coinqapp.base.BaseFragment
 import com.sunasterisk.coinqapp.data.model.Coin
@@ -8,6 +10,7 @@ import com.sunasterisk.coinqapp.data.source.remote.CoinRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentListCoinBinding
 import com.sunasterisk.coinqapp.ui.coindetail.CoinDetailFragment
 import com.sunasterisk.coinqapp.ui.listcoin.adapter.ListCoinAdapter
+import com.sunasterisk.coinqapp.utils.CustomProgressBar
 import com.sunasterisk.coinqapp.utils.addFragment
 import com.sunasterisk.coinqapp.utils.showMessage
 
@@ -15,6 +18,7 @@ class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContra
 
     private var presenter: ListCoinContract.Presenter? = null
     private val adapter = ListCoinAdapter(::itemCoinClick)
+    private val loadingProgressBar = CustomProgressBar()
 
     override val binding by lazy { FragmentListCoinBinding.inflate(layoutInflater) }
 
@@ -35,13 +39,19 @@ class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContra
     }
 
     override fun showError(error: Exception?) {
-        context?.showMessage(error.toString())
+        context?.showMessage(getString(R.string.error_get_data))
     }
 
     override fun showLoading() {
+        context?.let {
+            loadingProgressBar.showProgressBar(it, getString(R.string.msg_please_wait))
+        }
     }
 
     override fun hideLoading() {
+        Handler(Looper.myLooper()!!).postDelayed({
+            loadingProgressBar.dialog.dismiss()
+        }, CustomProgressBar.DIALOG_MIN_TIME)
     }
 
     private fun itemCoinClick(coin: Coin) {
