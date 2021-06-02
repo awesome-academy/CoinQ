@@ -21,12 +21,28 @@ object CoinConstant {
     const val COIN_CURRENT = "circulating_supply"
 }
 
+object CoinDetailConstant {
+    const val LINKS = "links"
+    const val HOME_PAGE = "homepage"
+    const val BLOCK_CHAIN_SITE = "blockchain_site"
+    const val FORUM_URL = "official_forum_url"
+    const val DESCRIPTION = "description"
+    const val ENGLISH = "en"
+}
+
 object ExchangeConstant {
     const val EXCHANGE_ID = "id"
     const val EXCHANGE_NAME = "name"
     const val EXCHANGE_IMAGE = "image"
     const val EXCHANGE_VOLUME = "trade_volume_24h_btc"
     const val EXCHANGE_TRUST = "trust_score"
+}
+
+object ExchangeDetailConstant {
+    const val YEAR_ESTABLISHED = "year_established"
+    const val EXCHANGE_URL = "url"
+    const val EXCHANGE_FACEBOOK = "facebook_url"
+    const val EXCHANGE_REDIS = "reddit_url"
 }
 
 object RequestConstant {
