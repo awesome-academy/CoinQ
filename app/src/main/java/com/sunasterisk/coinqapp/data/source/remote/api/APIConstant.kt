@@ -9,6 +9,7 @@ object APIConstant {
     const val COIN = "coins"
     const val MARKET = "markets"
     const val EXCHANGE = "exchanges"
+    const val EXCHANGE_VOLUME ="volume_chart"
 
     const val FILTER_USD = "vs_currency"
     const val FILTER_ORDER = "order"

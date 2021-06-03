@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:clickable="true">
 
     <View
         android:id="@+id/viewToolbar"
@@ -74,5 +75,132 @@
         app:layout_constraintBottom_toBottomOf="@id/viewToolbar"
         app:layout_constraintEnd_toEndOf="@id/viewToolbar"
         app:layout_constraintTop_toTopOf="@id/viewToolbar" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_260"
+        android:layout_margin="@dimen/dp_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewToolbar" />
+
+    <TextView
+        android:id="@+id/textYear"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/back_ground_item_left"
+        android:gravity="center_vertical"
+        android:text="@string/text_year_establish"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@id/textYearNumber"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lineChart" />
+
+    <TextView
+        android:id="@+id/textYearNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:background="@drawable/back_ground_item_right"
+        android:gravity="center_vertical|end"
+        app:layout_constraintBottom_toBottomOf="@id/textYear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="6"
+        app:layout_constraintStart_toEndOf="@id/textYear"
+        app:layout_constraintTop_toTopOf="@id/textYear" />
+
+    <TextView
+        android:id="@+id/textHomePage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@drawable/back_ground_item_left"
+        android:gravity="center_vertical"
+        android:text="@string/text_home_page"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@id/textHomePageURL"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textYear" />
+
+    <TextView
+        android:id="@+id/textHomePageURL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:autoLink="web"
+        android:background="@drawable/back_ground_item_right"
+        android:gravity="center_vertical|end"
+        android:textColorLink="@color/green_bot_nav"
+        app:layout_constraintBottom_toBottomOf="@id/textHomePage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="6"
+        app:layout_constraintStart_toEndOf="@id/textHomePage"
+        app:layout_constraintTop_toTopOf="@id/textHomePage" />
+
+    <TextView
+        android:id="@+id/textFacebook"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@drawable/back_ground_item_left"
+        android:gravity="center_vertical"
+        android:text="@string/text_facebook"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@id/textFacebookURL"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textHomePage" />
+
+    <TextView
+        android:id="@+id/textFacebookURL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:autoLink="web"
+        android:background="@drawable/back_ground_item_right"
+        android:gravity="center_vertical|end"
+        android:textColorLink="@color/green_bot_nav"
+        app:layout_constraintBottom_toBottomOf="@id/textFacebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="6"
+        app:layout_constraintStart_toEndOf="@id/textFacebook"
+        app:layout_constraintTop_toTopOf="@id/textFacebook" />
+
+    <TextView
+        android:id="@+id/textRedis"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@drawable/back_ground_item_left"
+        android:gravity="center_vertical"
+        android:text="@string/text_redis"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@id/textRedisURL"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textFacebook" />
+
+    <TextView
+        android:id="@+id/textRedisURL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:autoLink="web"
+        android:background="@drawable/back_ground_item_right"
+        android:gravity="center_vertical|end"
+        android:textColorLink="@color/green_bot_nav"
+        app:layout_constraintBottom_toBottomOf="@id/textRedis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="6"
+        app:layout_constraintStart_toEndOf="@id/textRedis"
+        app:layout_constraintTop_toTopOf="@id/textRedis" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
