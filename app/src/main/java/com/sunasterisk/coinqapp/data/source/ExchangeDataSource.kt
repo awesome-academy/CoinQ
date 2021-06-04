@@ -11,4 +11,11 @@ interface ExchangeDataSource {
         fun getExchangeDetail(exchangeId : String, callBack: OnLoadDataCallBack<ExchangeDetail>)
         fun getExchangeChart(exchangeId: String, days : Int, callBack: OnLoadDataCallBack<List<ExchangeEntry>>)
     }
+
+    interface Local{
+        fun insertExchange(exchange: Exchange, callBack: OnLoadDataCallBack<Long>)
+        fun deleteExchange(exchangeId: String, callBack: OnLoadDataCallBack<Boolean>)
+        fun getExchangesFavorite(callBack: OnLoadDataCallBack<List<Exchange>>)
+        fun isFavorite(exchangeId: String, callBack: OnLoadDataCallBack<Int>)
+    }
 }

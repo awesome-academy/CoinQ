@@ -13,6 +13,8 @@
     <string name="menu_tab_info">Information</string>
 
     <string name="msg_please_wait">Please Wait</string>
+    <string name="msg_insert_success">"Insert Success"</string>
+    <string name="msg_delete_success">"Delete Success"</string>
 
     <string name="text_coin">Coin</string>
     <string name="text_price">Price</string>
