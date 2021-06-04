@@ -3,6 +3,7 @@ package com.sunasterisk.coinqapp.ui.exchangedetail
 import android.graphics.Color
 import android.os.Handler
 import androidx.core.os.bundleOf
+import androidx.core.view.isInvisible
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -13,13 +14,13 @@ import com.sunasterisk.coinqapp.data.model.Exchange
 import com.sunasterisk.coinqapp.data.model.ExchangeDetail
 import com.sunasterisk.coinqapp.data.model.ExchangeEntry
 import com.sunasterisk.coinqapp.data.repository.ExchangeRepository
+import com.sunasterisk.coinqapp.data.source.local.ExchangeLocalDataSource
+import com.sunasterisk.coinqapp.data.source.local.dao.ExchangeDaoImpl
+import com.sunasterisk.coinqapp.data.source.local.db.AppDataBase
 import com.sunasterisk.coinqapp.data.source.remote.ExchangeRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentExchangeDetailBinding
 import com.sunasterisk.coinqapp.ui.home.HomeFragment
-import com.sunasterisk.coinqapp.utils.CustomProgressBar
-import com.sunasterisk.coinqapp.utils.backPress
-import com.sunasterisk.coinqapp.utils.loadImage
-import com.sunasterisk.coinqapp.utils.showMessage
+import com.sunasterisk.coinqapp.utils.*
 
 class ExchangeDetailFragment : BaseFragment<FragmentExchangeDetailBinding>(),
     ExchangeDetailContract.View {
@@ -35,7 +36,14 @@ class ExchangeDetailFragment : BaseFragment<FragmentExchangeDetailBinding>(),
         presenter =
             ExchangeDetailPresenter(
                 this,
-                ExchangeRepository.getInstance(ExchangeRemoteDataSource.getInstance())
+                ExchangeRepository.getInstance(
+                    ExchangeRemoteDataSource.getInstance(),
+                    ExchangeLocalDataSource.getInstance(
+                        ExchangeDaoImpl.getInstance(
+                            AppDataBase.getInstance(context)
+                        )
+                    )
+                )
             )
         exchange?.let {
             presenter?.getExchangeDetail(it.id)
@@ -47,6 +55,16 @@ class ExchangeDetailFragment : BaseFragment<FragmentExchangeDetailBinding>(),
         with(binding) {
             buttonBack.setOnClickListener {
                 backPress(parentFragmentManager, HomeFragment())
+            }
+            buttonFavorite.setOnClickListener {
+                it.gone()
+                buttonUnFavorite.show()
+                exchange?.let { coin -> presenter?.deleteExchangeFavorite(coin.id) }
+            }
+            buttonUnFavorite.setOnClickListener {
+                it.gone()
+                buttonFavorite.show()
+                exchange?.let { coin -> presenter?.insertExchangeFavorite(coin) }
             }
         }
     }
@@ -98,6 +116,20 @@ class ExchangeDetailFragment : BaseFragment<FragmentExchangeDetailBinding>(),
             description.isEnabled = false
             data = lineData
         }
+    }
+
+    override fun showExchangeFavorite(isFavorite: Int) {
+        val isCheck = (isFavorite >= 1)
+        binding.buttonFavorite.isInvisible = !isCheck
+        binding.buttonUnFavorite.isInvisible = isCheck
+    }
+
+    override fun isInsertedExchangeFavorite(long: Long) {
+        context?.showMessage(getString(R.string.msg_insert_success))
+    }
+
+    override fun isDeletedExchangeFavorite(boolean: Boolean) {
+        context?.showMessage(getString(R.string.msg_delete_success))
     }
 
     override fun showError(error: Exception?) {

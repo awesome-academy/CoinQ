@@ -6,6 +6,9 @@ import com.sunasterisk.coinqapp.R
 import com.sunasterisk.coinqapp.base.BaseFragment
 import com.sunasterisk.coinqapp.data.model.Exchange
 import com.sunasterisk.coinqapp.data.repository.ExchangeRepository
+import com.sunasterisk.coinqapp.data.source.local.ExchangeLocalDataSource
+import com.sunasterisk.coinqapp.data.source.local.dao.ExchangeDaoImpl
+import com.sunasterisk.coinqapp.data.source.local.db.AppDataBase
 import com.sunasterisk.coinqapp.data.source.remote.ExchangeRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentListExchangeBinding
 import com.sunasterisk.coinqapp.ui.exchangedetail.ExchangeDetailFragment
@@ -26,7 +29,14 @@ class ListExchangeFragment : BaseFragment<FragmentListExchangeBinding>(),
     override fun initViews() {
         binding.recyclerExchange.adapter = adapter
         presenter = ListExchangePresenter(
-            ExchangeRepository.getInstance(ExchangeRemoteDataSource.getInstance()),
+            ExchangeRepository.getInstance(
+                ExchangeRemoteDataSource.getInstance(),
+                ExchangeLocalDataSource.getInstance(
+                    ExchangeDaoImpl.getInstance(
+                        AppDataBase.getInstance(context)
+                    )
+                )
+            ),
             this
         )
         presenter?.getListExchange()
