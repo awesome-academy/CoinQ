@@ -7,8 +7,9 @@ import com.sunasterisk.coinqapp.data.source.ExchangeDataSource
 import com.sunasterisk.coinqapp.utils.OnLoadDataCallBack
 
 class ExchangeRepository private constructor(
-    private val remote: ExchangeDataSource.Remote
-) : ExchangeDataSource.Remote {
+    private val remote: ExchangeDataSource.Remote,
+    private val local: ExchangeDataSource.Local
+) : ExchangeDataSource.Remote, ExchangeDataSource.Local {
 
     override fun getExchanges(
         perPage: Int,
@@ -27,10 +28,22 @@ class ExchangeRepository private constructor(
         callBack: OnLoadDataCallBack<List<ExchangeEntry>>
     ) = remote.getExchangeChart(exchangeId, days, callBack)
 
+    override fun insertExchange(exchange: Exchange, callBack: OnLoadDataCallBack<Long>) =
+        local.insertExchange(exchange, callBack)
+
+    override fun deleteExchange(exchangeId: String, callBack: OnLoadDataCallBack<Boolean>) =
+        local.deleteExchange(exchangeId, callBack)
+
+    override fun getExchangesFavorite(callBack: OnLoadDataCallBack<List<Exchange>>) =
+        local.getExchangesFavorite(callBack)
+
+    override fun isFavorite(exchangeId: String, callBack: OnLoadDataCallBack<Int>) =
+        local.isFavorite(exchangeId, callBack)
+
     companion object {
         private var instance: ExchangeRepository? = null
 
-        fun getInstance(remote: ExchangeDataSource.Remote) =
-            instance ?: ExchangeRepository(remote).also { instance = it }
+        fun getInstance(remote: ExchangeDataSource.Remote, local: ExchangeDataSource.Local) =
+            instance ?: ExchangeRepository(remote, local).also { instance = it }
     }
 }

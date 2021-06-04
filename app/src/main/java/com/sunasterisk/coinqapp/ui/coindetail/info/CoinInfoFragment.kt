@@ -7,6 +7,9 @@ import com.sunasterisk.coinqapp.R
 import com.sunasterisk.coinqapp.base.BaseFragment
 import com.sunasterisk.coinqapp.data.model.CoinDetail
 import com.sunasterisk.coinqapp.data.repository.CoinRepository
+import com.sunasterisk.coinqapp.data.source.local.CoinLocalDataSource
+import com.sunasterisk.coinqapp.data.source.local.dao.CoinDaoImpl
+import com.sunasterisk.coinqapp.data.source.local.db.AppDataBase
 import com.sunasterisk.coinqapp.data.source.remote.CoinRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentCoinInfoBinding
 import com.sunasterisk.coinqapp.utils.CustomProgressBar
@@ -22,7 +25,16 @@ class CoinInfoFragment : BaseFragment<FragmentCoinInfoBinding>(), CoinInfoContra
     override fun initViews() {
         val coinId = arguments?.getString(BUNDLE_COIN_ID)
         presenter =
-            CoinInfoPresenter(this, CoinRepository.getInstance(CoinRemoteDataSource.getInstance()))
+            CoinInfoPresenter(
+                this,
+                CoinRepository.getInstance(
+                    CoinRemoteDataSource.getInstance(), CoinLocalDataSource.getInstance(
+                        CoinDaoImpl.getInstance(
+                            AppDataBase.getInstance(context)
+                        )
+                    )
+                )
+            )
         coinId?.let { presenter?.getCoinDetail(it) }
     }
 

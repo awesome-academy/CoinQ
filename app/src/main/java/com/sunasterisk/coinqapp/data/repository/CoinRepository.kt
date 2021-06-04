@@ -9,8 +9,9 @@ import com.sunasterisk.coinqapp.data.source.remote.api.RequestCoins
 import com.sunasterisk.coinqapp.utils.OnLoadDataCallBack
 
 class CoinRepository private constructor(
-    private val remote: CoinDataSource.Remote
-) : CoinDataSource.Remote {
+    private val remote: CoinDataSource.Remote,
+    private val local: CoinDataSource.Local
+) : CoinDataSource.Remote, CoinDataSource.Local {
 
     override fun getCoins(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<List<Coin>>) =
         remote.getCoins(requestCoins, callBack)
@@ -31,10 +32,22 @@ class CoinRepository private constructor(
         remote.getCoinChart(coinId, moneyExchange, days, callBack)
     }
 
+    override fun insertCoin(coin: Coin, callBack: OnLoadDataCallBack<Long>) =
+        local.insertCoin(coin, callBack)
+
+    override fun deleteCoin(coinId: String, callBack: OnLoadDataCallBack<Boolean>) =
+        local.deleteCoin(coinId, callBack)
+
+    override fun getCoinsFavorite(callBack: OnLoadDataCallBack<List<Coin>>) =
+        local.getCoinsFavorite(callBack)
+
+    override fun isFavorite(coinId: String, callBack: OnLoadDataCallBack<Int>) =
+        local.isFavorite(coinId, callBack)
+
     companion object {
         private var instance: CoinRepository? = null
 
-        fun getInstance(remote: CoinDataSource.Remote) =
-            instance ?: CoinRepository(remote).also { instance = it }
+        fun getInstance(remote: CoinDataSource.Remote, local: CoinDataSource.Local) =
+            instance ?: CoinRepository(remote, local).also { instance = it }
     }
 }

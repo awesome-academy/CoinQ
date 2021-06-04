@@ -14,6 +14,9 @@ import com.sunasterisk.coinqapp.base.BaseFragment
 import com.sunasterisk.coinqapp.data.model.Coin
 import com.sunasterisk.coinqapp.data.model.CoinEntry
 import com.sunasterisk.coinqapp.data.repository.CoinRepository
+import com.sunasterisk.coinqapp.data.source.local.CoinLocalDataSource
+import com.sunasterisk.coinqapp.data.source.local.dao.CoinDaoImpl
+import com.sunasterisk.coinqapp.data.source.local.db.AppDataBase
 import com.sunasterisk.coinqapp.data.source.remote.CoinRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentCoinChartBinding
 import com.sunasterisk.coinqapp.utils.CustomProgressBar
@@ -89,7 +92,16 @@ class CoinChartFragment : BaseFragment<FragmentCoinChartBinding>(), CoinChartCon
             }
         }
         presenter =
-            CoinChartPresenter(CoinRepository.getInstance(CoinRemoteDataSource.getInstance()), this)
+            CoinChartPresenter(
+                CoinRepository.getInstance(
+                    CoinRemoteDataSource.getInstance(),
+                    CoinLocalDataSource.getInstance(
+                        CoinDaoImpl.getInstance(
+                            AppDataBase.getInstance(context)
+                        )
+                    )
+                ), this
+            )
         coin?.let { presenter?.getCoinChart(it.id) }
     }
 
