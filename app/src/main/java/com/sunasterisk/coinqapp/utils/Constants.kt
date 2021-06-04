@@ -54,7 +54,15 @@ object Pattern {
     const val PATTERN_TEX_DAY = "#0.00%"
     const val PATTERN_TEXT_PRICE = "$###,###.####"
     const val PATTERN_TEXT_MARKET = "$###,###,##0"
+    const val PATTERN_TEXT_NUMBER = "###,###.######"
     const val PATTERN_TEXT_SUPPLY = "###,###,##0"
 
     fun formatToPattern(pattern: String, value: Any): String = DecimalFormat(pattern).format(value)
+}
+
+object Default {
+    const val DEFAULT_LONG = 0L
+    const val DEFAULT_INT = 0
+    const val DEFAULT_DOUBLE = 0.0
+    const val DEFAULT_STRING = ""
 }

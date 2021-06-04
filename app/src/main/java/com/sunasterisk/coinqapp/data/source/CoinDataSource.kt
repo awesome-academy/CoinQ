@@ -14,4 +14,11 @@ interface CoinDataSource {
         fun getCoinDetail(requestCoinDetail: RequestCoinDetail, callBack: OnLoadDataCallBack<CoinDetail>)
         fun getCoinChart(coinId: String, moneyExchange: String, days: Int, callBack: OnLoadDataCallBack<List<CoinEntry>>)
     }
+
+    interface Local{
+        fun insertCoin(coin: Coin, callBack: OnLoadDataCallBack<Long>)
+        fun deleteCoin(coinId: String,callBack: OnLoadDataCallBack<Boolean>)
+        fun getCoinsFavorite(callBack: OnLoadDataCallBack<List<Coin>>)
+        fun isFavorite(coinId: String, callBack: OnLoadDataCallBack<Int>)
+    }
 }

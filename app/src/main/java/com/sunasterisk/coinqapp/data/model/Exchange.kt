@@ -1,5 +1,7 @@
 package com.sunasterisk.coinqapp.data.model
 
+import android.content.ContentValues
+import android.database.Cursor
 import android.os.Parcelable
 import com.sunasterisk.coinqapp.utils.ExchangeConstant.EXCHANGE_ID
 import com.sunasterisk.coinqapp.utils.ExchangeConstant.EXCHANGE_IMAGE
@@ -24,4 +26,29 @@ data class Exchange(
         jsonObject.getLong(EXCHANGE_VOLUME),
         jsonObject.optInt(EXCHANGE_TRUST)
     )
+
+    constructor(cursor: Cursor) : this(
+        cursor.getString(cursor.getColumnIndex(KEY_ID)),
+        cursor.getString(cursor.getColumnIndex(NAME)),
+        cursor.getString(cursor.getColumnIndex(IMAGE)),
+        cursor.getLong(cursor.getColumnIndex(VOLUMES)),
+        cursor.getInt(cursor.getColumnIndex(TRUST_SCORE))
+    )
+
+    fun getContentValue() = ContentValues().apply {
+        put(KEY_ID, id)
+        put(NAME, name)
+        put(IMAGE, image)
+        put(VOLUMES, volume)
+        put(TRUST_SCORE, trustScore)
+    }
+
+    companion object {
+        const val EXCHANGE_TABLE_NAME = "meal"
+        const val KEY_ID = "id"
+        const val NAME = "name"
+        const val IMAGE = "image"
+        const val VOLUMES = "volume"
+        const val TRUST_SCORE = "trustScore"
+    }
 }
