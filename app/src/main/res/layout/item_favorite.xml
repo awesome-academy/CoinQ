@@ -2,10 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_40"
+    android:layout_height="@dimen/dp_50"
     android:layout_marginTop="@dimen/dp_5"
-    android:background="@drawable/back_ground_description"
-    app:cardBackgroundColor="@color/color_panache">
+    app:cardCornerRadius="@dimen/dp_10">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,10 +31,10 @@
             android:text="@string/text_coin"
             android:textSize="@dimen/sp_15"
             android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="@id/imageCoin"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageCoin"
-            app:layout_constraintTop_toTopOf="@id/imageCoin" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

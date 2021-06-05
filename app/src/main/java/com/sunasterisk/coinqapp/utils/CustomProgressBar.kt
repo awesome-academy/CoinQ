@@ -8,6 +8,7 @@ import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import androidx.core.content.res.ResourcesCompat
@@ -24,7 +25,7 @@ class CustomProgressBar {
         if (title != null) {
             binding.textMessage.text = title
         }
-        binding.cardViewCustom.setCardBackgroundColor(R.color.color_panache)
+        binding.cardViewCustom.setCardBackgroundColor(context.resources.getColor(R.color.green_bot_nav))
         setColorFilter(
             binding.progressBarLoading.indeterminateDrawable,
             ResourcesCompat.getColor(context.resources, R.color.color_panache, null)
@@ -49,7 +50,7 @@ class CustomProgressBar {
 
     class CustomDialog(context: Context) : Dialog(context, R.style.CustomDialogTheme) {
         init {
-            window?.let { it.decorView.rootView?.setBackgroundResource(R.color.color_panache) }
+            window?.let { it.decorView.rootView?.setBackgroundResource(R.color.color_alto) }
             window?.let {
                 it.decorView.setOnApplyWindowInsetsListener { _, insets ->
                     insets.consumeSystemWindowInsets()
