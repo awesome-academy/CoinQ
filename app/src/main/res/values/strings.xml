@@ -11,6 +11,8 @@
 
     <string name="menu_tab_price">Price Chart</string>
     <string name="menu_tab_info">Information</string>
+    <string name="menu_coin">Cryptocurrency</string>
+    <string name="menu_exchange">Exchange</string>
 
     <string name="msg_please_wait">Please Wait</string>
     <string name="msg_insert_success">"Insert Success"</string>

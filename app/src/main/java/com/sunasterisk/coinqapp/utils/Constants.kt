@@ -46,6 +46,10 @@ object ExchangeDetailConstant {
 }
 
 object RequestConstant {
+    const val REQUEST_VSCURRENCY = "usd"
+    const val REQUEST_ORDER = "market_cap_desc"
+    const val REQUEST_SPARKLINE = false
+    const val REQUEST_DAYCHANGE = "24h"
     const val REQUEST_PERPAGE = 100
     const val REQUEST_PAGE = 1
 }
@@ -64,5 +68,6 @@ object Default {
     const val DEFAULT_LONG = 0L
     const val DEFAULT_INT = 0
     const val DEFAULT_DOUBLE = 0.0
+    const val DEFAULT_DOUBLE_ONE = 1.0
     const val DEFAULT_STRING = ""
 }

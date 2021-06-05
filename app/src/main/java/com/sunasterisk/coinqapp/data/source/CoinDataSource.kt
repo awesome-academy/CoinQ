@@ -11,6 +11,7 @@ interface CoinDataSource {
 
     interface Remote {
         fun getCoins(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<List<Coin>>)
+        fun getCoin(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<Coin>)
         fun getCoinDetail(requestCoinDetail: RequestCoinDetail, callBack: OnLoadDataCallBack<CoinDetail>)
         fun getCoinChart(coinId: String, moneyExchange: String, days: Int, callBack: OnLoadDataCallBack<List<CoinEntry>>)
     }

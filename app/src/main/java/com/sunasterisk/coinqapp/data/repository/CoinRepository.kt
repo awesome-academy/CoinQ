@@ -16,6 +16,10 @@ class CoinRepository private constructor(
     override fun getCoins(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<List<Coin>>) =
         remote.getCoins(requestCoins, callBack)
 
+    override fun getCoin(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<Coin>) {
+        remote.getCoin(requestCoins, callBack)
+    }
+
     override fun getCoinDetail(
         requestCoinDetail: RequestCoinDetail,
         callBack: OnLoadDataCallBack<CoinDetail>
