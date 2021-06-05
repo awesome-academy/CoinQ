@@ -12,6 +12,7 @@ import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_DAY
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_DAYS
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_DEV_DATA
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_ID
+import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_IDS
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_LOCALIZATION
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_MARKET_DATA
 import com.sunasterisk.coinqapp.data.source.remote.api.APIConstant.FILTER_ORDER
@@ -33,6 +34,21 @@ object APIQuery {
         .appendPath(COIN)
         .appendPath(MARKET)
         .appendQueryParameter(FILTER_USD, requestCoins.vsCurrency)
+        .appendQueryParameter(FILTER_ORDER, requestCoins.order)
+        .appendQueryParameter(FILTER_PER_PAGE, requestCoins.perPage.toString())
+        .appendQueryParameter(FILTER_PAGE, requestCoins.page.toString())
+        .appendQueryParameter(FILTER_SPARK_LINE, requestCoins.sparkline.toString())
+        .appendQueryParameter(FILTER_DAY, requestCoins.changeDay)
+        .toString()
+
+    fun queryCoin(requestCoins: RequestCoins) = Uri.Builder().scheme(SCHEME)
+        .authority(BASE_URL)
+        .appendPath(API_CONTENT)
+        .appendPath(API_VER)
+        .appendPath(COIN)
+        .appendPath(MARKET)
+        .appendQueryParameter(FILTER_USD, requestCoins.vsCurrency)
+        .appendQueryParameter(FILTER_IDS, requestCoins.id)
         .appendQueryParameter(FILTER_ORDER, requestCoins.order)
         .appendQueryParameter(FILTER_PER_PAGE, requestCoins.perPage.toString())
         .appendQueryParameter(FILTER_PAGE, requestCoins.page.toString())

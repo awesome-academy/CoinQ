@@ -17,6 +17,7 @@ object APIConstant {
     const val FILTER_PAGE = "page"
     const val FILTER_SPARK_LINE = "sparkline"
     const val FILTER_DAY = "price_change_percentage"
+    const val FILTER_IDS = "ids"
 
     const val FILTER_ID = "id"
     const val FILTER_LOCALIZATION = "localization"

@@ -6,7 +6,8 @@ data class RequestCoins(
     val perPage: Int,
     val page: Int,
     val sparkline: Boolean,
-    val changeDay: String
+    val changeDay: String,
+    val id: String? = null
 )
 
 data class RequestCoinDetail(

@@ -2,8 +2,8 @@ package com.sunasterisk.coinqapp.ui.coindetail.chart
 
 import com.sunasterisk.coinqapp.data.model.CoinEntry
 import com.sunasterisk.coinqapp.data.repository.CoinRepository
-import com.sunasterisk.coinqapp.ui.listcoin.ListCoinPresenter
 import com.sunasterisk.coinqapp.utils.OnLoadDataCallBack
+import com.sunasterisk.coinqapp.utils.RequestConstant.REQUEST_VSCURRENCY
 
 class CoinChartPresenter(
     private val coinRepository: CoinRepository,
@@ -14,7 +14,7 @@ class CoinChartPresenter(
         view.showLoading()
         coinRepository.getCoinChart(
             coinId,
-            ListCoinPresenter.REQUEST_VSCURRENCY,
+            REQUEST_VSCURRENCY,
             REQUEST_DAYS,
             object : OnLoadDataCallBack<List<CoinEntry>> {
                 override fun onSuccess(data: List<CoinEntry>) {

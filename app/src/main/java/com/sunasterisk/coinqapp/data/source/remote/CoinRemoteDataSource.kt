@@ -22,11 +22,17 @@ class CoinRemoteDataSource private constructor() : CoinDataSource.Remote {
         }.execute()
     }
 
+    override fun getCoin(requestCoins: RequestCoins, callBack: OnLoadDataCallBack<Coin>) {
+        LoadDataAsyncTask(callBack) {
+            getCoin(requestCoins)[0]
+        }.execute()
+    }
+
     override fun getCoinDetail(
         requestCoinDetail: RequestCoinDetail,
         callBack: OnLoadDataCallBack<CoinDetail>
     ) {
-        LoadDataAsyncTask(callBack){
+        LoadDataAsyncTask(callBack) {
             getCoinDetail(requestCoinDetail)[0]
         }.execute()
     }
@@ -48,7 +54,13 @@ class CoinRemoteDataSource private constructor() : CoinDataSource.Remote {
         return jsonArray.parseJsonToObject()
     }
 
-    private fun getCoinDetail(requestCoinDetail: RequestCoinDetail) : List<CoinDetail>{
+    private fun getCoin(requestCoins: RequestCoins) : List<Coin>{
+        val jsonString = getJsonFromUrl(APIQuery.queryCoin(requestCoins))
+        val jsonArray = JSONArray(jsonString)
+        return jsonArray.parseJsonToObject()
+    }
+
+    private fun getCoinDetail(requestCoinDetail: RequestCoinDetail): List<CoinDetail> {
         val jsonString = getJsonFromUrl(APIQuery.queryCoinDetail(requestCoinDetail))
         val jsonArray = JSONArray().put(JSONObject(jsonString))
         return jsonArray.parseJsonToObject()

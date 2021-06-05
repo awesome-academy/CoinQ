@@ -19,6 +19,21 @@ fun addFragment(
         }
 }
 
+fun replaceFragment(
+    fragmentManager: FragmentManager,
+    layoutId: Int,
+    fragment: Fragment,
+    tag : String? = null
+){
+    fragmentManager.beginTransaction()
+        .apply {
+            replace(layoutId, fragment)
+            addToBackStack(tag)
+            commit()
+        }
+}
+
+
 fun backPress(
     fragmentManager: FragmentManager,
     fragment: Fragment
