@@ -45,10 +45,15 @@ class ExchangeDetailFragment : BaseFragment<FragmentExchangeDetailBinding>(),
                     )
                 )
             )
-        exchange?.let {
-            presenter?.getExchangeDetail(it.id)
-            presenter?.getExchangeChart(it.id, DAYS)
+
+        presenter?.apply {
+            exchange?.let {
+                getExchangeDetail(it.id)
+                getExchangeChart(it.id, DAYS)
+                getExchangeFavorite(it.id)
+            }
         }
+
     }
 
     override fun initListeners() {

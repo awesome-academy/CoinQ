@@ -108,7 +108,7 @@ class CoinDetailFragment : BaseFragment<FragmentCoinDetailBinding>(), CoinDetail
     }
 
     override fun isDeletedCoinFavorite(boolean: Boolean) {
-        context?.showMessage(getString(R.string.msg_insert_success))
+        context?.showMessage(getString(R.string.msg_delete_success))
     }
 
     override fun showError(error: Exception?) {
