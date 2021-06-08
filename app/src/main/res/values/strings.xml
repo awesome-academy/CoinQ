@@ -39,7 +39,11 @@
     <string name="text_block_chain">Block Chain</string>
     <string name="text_forum">Discussion Forum</string>
     <string name="text_year_establish">Year Establish</string>
-    <string name="text_facebook">FaceBook</string>
-    <string name="text_redis">Redis</string>
+    <string name="text_facebook" translatable="false">FaceBook</string>
+    <string name="text_redis" translatable="false">Redis</string>
+    <string name="text_viet_nam">Vietnamese</string>
+    <string name="text_english">English</string>
+    <string name="text_language">Language</string>
+    <string name="text_calculator">Calculator</string>
 
 </resources>

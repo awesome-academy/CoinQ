@@ -1,7 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@android:color/white">
+
+    <View
+        android:id="@+id/viewToolbar"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        android:background="@color/green_bot_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/viewToolbar"
+        app:layout_constraintEnd_toEndOf="@id/viewToolbar"
+        app:layout_constraintStart_toStartOf="@id/viewToolbar"
+        app:layout_constraintTop_toTopOf="@id/viewToolbar" />
+
+    <View
+        android:id="@+id/viewCalculator"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/back_ground_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewToolbar" />
+
+    <TextView
+        android:id="@+id/textCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="@string/text_calculator"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintBottom_toBottomOf="@id/viewCalculator"
+        app:layout_constraintStart_toStartOf="@id/viewCalculator"
+        app:layout_constraintTop_toTopOf="@id/viewCalculator" />
+
+    <ImageButton
+        android:id="@+id/imageCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:src="@drawable/ic_calculate"
+        app:layout_constraintBottom_toBottomOf="@id/viewCalculator"
+        app:layout_constraintEnd_toEndOf="@id/viewCalculator"
+        app:layout_constraintTop_toTopOf="@id/viewCalculator" />
+
+    <View
+        android:id="@+id/viewLanguage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_50"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/back_ground_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewCalculator" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="@string/text_language"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintBottom_toBottomOf="@id/viewLanguage"
+        app:layout_constraintStart_toStartOf="@id/viewLanguage"
+        app:layout_constraintTop_toTopOf="@id/viewLanguage" />
+
+    <Button
+        android:id="@+id/buttonEnglish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:backgroundTint="@color/color_panache"
+        android:text="@string/text_english"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/viewLanguage"
+        app:layout_constraintEnd_toEndOf="@id/viewLanguage"
+        app:layout_constraintTop_toTopOf="@id/viewLanguage" />
+
+    <Button
+        android:id="@+id/buttonVietnamese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:backgroundTint="@color/color_panache"
+        android:text="@string/text_viet_nam"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/viewLanguage"
+        app:layout_constraintEnd_toStartOf="@id/buttonEnglish"
+        app:layout_constraintTop_toTopOf="@id/viewLanguage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
