@@ -71,3 +71,9 @@ object Default {
     const val DEFAULT_DOUBLE_ONE = 1.0
     const val DEFAULT_STRING = ""
 }
+
+object Language {
+    const val LANGUAGE = "language"
+    const val VIETNAMESE_CODE = "vi"
+    const val ENGLISH_CODE = "en"
+}

@@ -11,6 +11,10 @@ import com.sunasterisk.coinqapp.ui.favorite.FavoriteFragment
 import com.sunasterisk.coinqapp.ui.home.HomeFragment
 import com.sunasterisk.coinqapp.ui.search.SearchFragment
 import com.sunasterisk.coinqapp.ui.setting.SettingFragment
+import com.sunasterisk.coinqapp.utils.AppSharedPreferences
+import com.sunasterisk.coinqapp.utils.Language.ENGLISH_CODE
+import com.sunasterisk.coinqapp.utils.Language.LANGUAGE
+import com.sunasterisk.coinqapp.utils.setLanguage
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -19,8 +23,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val favoriteFragment = FavoriteFragment()
     private val searchFragment = SearchFragment()
     private val settingFragment = SettingFragment()
+    private var preferences: AppSharedPreferences? = null
 
     override fun createView() {
+        setAppLanguage()
         binding.bottomNavigation.apply {
             setOnNavigationItemSelectedListener(onNavigationSelectedListener)
             selectedItemId = R.id.menu_market
@@ -45,6 +51,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 .replace(R.id.frameContainer, fragment)
                 .commit()
         }
+    }
+
+    private fun setAppLanguage() {
+        preferences = AppSharedPreferences.getInstance(applicationContext)
+        val language = preferences?.getString(
+            LANGUAGE,
+            ENGLISH_CODE
+        )
+        language?.let { setLanguage(it) }
     }
 
     companion object {

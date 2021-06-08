@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CoinQ</string>
+
+    <string name="action_market">Thể Loại</string>
+    <string name="action_favorite">Yêu Thích</string>
+    <string name="action_search">Tìm Kiếm</string>
+    <string name="action_setting">Cài Đặt</string>
+
+    <string name="error_parse_json">Không Có Dữ Liệu</string>
+    <string name="error_get_data">Không Có Dữ Liệu</string>
+
+    <string name="menu_tab_price">Biểu Đồ</string>
+    <string name="menu_tab_info">Thông Tin</string>
+    <string name="menu_coin">Tiền Điện Tử</string>
+    <string name="menu_exchange">Sàn Giao Dịch</string>
+
+    <string name="msg_please_wait">Chờ Xíu</string>
+    <string name="msg_insert_success">Thêm Thành Công</string>
+    <string name="msg_delete_success">Xóa Thành Công</string>
+    <string name="msg_fill_search">Nhập Ký Tự Bất Kỳ</string>
+
+    <string name="text_coin">Tiền</string>
+    <string name="text_price">Giá</string>
+    <string name="text_24_hours">24 Giờ</string>
+    <string name="text_market_cap">Vốn Hóa</string>
+    <string name="text_exchange_volume">Khối Lượng</string>
+    <string name="text_usd">Đô La</string>
+    <string name="text_number_one">1</string>
+    <string name="text_market_cap_rank">Xếp Hạng</string>
+    <string name="text_trading_volume">Khối Lượng Trade</string>
+    <string name="text_day_high">Cao Nhất Ngày</string>
+    <string name="text_day_low">Thấp Nhất Ngày</string>
+    <string name="text_max_high">Cao Nhất</string>
+    <string name="text_max_low">Thấp Nhất</string>
+    <string name="text_total_supply">Tổng Số Lượng</string>
+    <string name="text_max_supply">Số Lượng Lớn Nhất</string>
+    <string name="text_current_supply">Số Lượng Hiện Tại</string>
+    <string name="text_home_page">Trang Chủ</string>
+    <string name="text_block_chain">Công Nghệ</string>
+    <string name="text_forum">Trao Đổi</string>
+    <string name="text_year_establish">Năm Thành Lập</string>
+    <string name="text_viet_nam">Tiếng Việt</string>
+    <string name="text_english">Tiếng Anh</string>
+    <string name="text_language">Ngôn Ngữ</string>
+    <string name="text_calculator">Máy Tính</string>
+
+</resources>
