@@ -61,8 +61,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchFragmentCont
                     )
                 )
             )
-        presenter?.getCoins()
-        presenter?.getExchanges()
+        if (requireContext().checkInternet()) {
+            presenter?.getCoins()
+            presenter?.getExchanges()
+        }
     }
 
     override fun initListeners() {

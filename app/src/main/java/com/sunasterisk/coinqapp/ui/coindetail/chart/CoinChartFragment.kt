@@ -25,6 +25,7 @@ import com.sunasterisk.coinqapp.utils.Pattern.PATTERN_TEXT_PRICE
 import com.sunasterisk.coinqapp.utils.Pattern.PATTERN_TEXT_SUPPLY
 import com.sunasterisk.coinqapp.utils.Pattern.PATTERN_TEX_DAY
 import com.sunasterisk.coinqapp.utils.Pattern.formatToPattern
+import com.sunasterisk.coinqapp.utils.checkInternet
 import com.sunasterisk.coinqapp.utils.showMessage
 
 class CoinChartFragment : BaseFragment<FragmentCoinChartBinding>(), CoinChartContract.View {
@@ -102,7 +103,9 @@ class CoinChartFragment : BaseFragment<FragmentCoinChartBinding>(), CoinChartCon
                     )
                 ), this
             )
-        coin?.let { presenter?.getCoinChart(it.id) }
+        if (requireContext().checkInternet()) {
+            coin?.let { presenter?.getCoinChart(it.id) }
+        }
     }
 
     override fun initListeners() {

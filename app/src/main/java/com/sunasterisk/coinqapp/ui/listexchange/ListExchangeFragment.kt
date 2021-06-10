@@ -15,6 +15,7 @@ import com.sunasterisk.coinqapp.ui.exchangedetail.ExchangeDetailFragment
 import com.sunasterisk.coinqapp.ui.listexchange.adapter.ListExchangeAdapter
 import com.sunasterisk.coinqapp.utils.CustomProgressBar
 import com.sunasterisk.coinqapp.utils.addFragment
+import com.sunasterisk.coinqapp.utils.checkInternet
 import com.sunasterisk.coinqapp.utils.showMessage
 
 class ListExchangeFragment : BaseFragment<FragmentListExchangeBinding>(),
@@ -39,7 +40,9 @@ class ListExchangeFragment : BaseFragment<FragmentListExchangeBinding>(),
             ),
             this
         )
-        presenter?.getListExchange()
+        if (requireContext().checkInternet()) {
+            presenter?.getListExchange()
+        }
     }
 
     override fun initListeners() {

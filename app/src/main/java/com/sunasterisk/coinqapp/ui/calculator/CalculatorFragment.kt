@@ -14,11 +14,8 @@ import com.sunasterisk.coinqapp.data.source.remote.CoinRemoteDataSource
 import com.sunasterisk.coinqapp.databinding.FragmentCalculatorBinding
 import com.sunasterisk.coinqapp.ui.calculator.adapter.CalculatorAdapter
 import com.sunasterisk.coinqapp.ui.setting.SettingFragment
-import com.sunasterisk.coinqapp.utils.CustomProgressBar
+import com.sunasterisk.coinqapp.utils.*
 import com.sunasterisk.coinqapp.utils.Default.DEFAULT_DOUBLE_ONE
-import com.sunasterisk.coinqapp.utils.backPress
-import com.sunasterisk.coinqapp.utils.closeKeyboard
-import com.sunasterisk.coinqapp.utils.showMessage
 
 class CalculatorFragment : BaseFragment<FragmentCalculatorBinding>(), CalculatorContract.View {
 
@@ -44,7 +41,9 @@ class CalculatorFragment : BaseFragment<FragmentCalculatorBinding>(), Calculator
                 )
             )
         )
-        presenter?.getCoins()
+        if (requireContext().checkInternet()) {
+            presenter?.getCoins()
+        }
     }
 
     override fun initListeners() {
