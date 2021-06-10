@@ -45,5 +45,6 @@
     <string name="text_english">English</string>
     <string name="text_language">Language</string>
     <string name="text_calculator">Calculator</string>
+    <string name="text_internet">No Internet !</string>
 
 </resources>

@@ -14,6 +14,7 @@ import com.sunasterisk.coinqapp.databinding.FragmentFavoriteCoinBinding
 import com.sunasterisk.coinqapp.ui.coindetail.CoinDetailFragment
 import com.sunasterisk.coinqapp.ui.favorite.coin.adapter.CoinFavoriteAdapter
 import com.sunasterisk.coinqapp.utils.CustomProgressBar
+import com.sunasterisk.coinqapp.utils.checkInternet
 import com.sunasterisk.coinqapp.utils.replaceFragment
 import com.sunasterisk.coinqapp.utils.showMessage
 
@@ -73,7 +74,9 @@ class CoinFavoriteFragment : BaseFragment<FragmentFavoriteCoinBinding>(),
     }
 
     private fun onItemClick(coin: Coin) {
-        presenter?.getCoin(coin.id)
+        if (requireContext().checkInternet()) {
+            presenter?.getCoin(coin.id)
+        }
         cryptol?.let {
             parentFragment?.apply {
                 replaceFragment(

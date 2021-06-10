@@ -44,5 +44,6 @@
     <string name="text_english">Tiếng Anh</string>
     <string name="text_language">Ngôn Ngữ</string>
     <string name="text_calculator">Máy Tính</string>
+    <string name="text_internet">Không Có Mạng !</string>
 
 </resources>

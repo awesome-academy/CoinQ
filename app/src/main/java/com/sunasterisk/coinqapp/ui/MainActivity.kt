@@ -1,7 +1,13 @@
 package com.sunasterisk.coinqapp.ui
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sunasterisk.coinqapp.R
@@ -14,6 +20,7 @@ import com.sunasterisk.coinqapp.ui.setting.SettingFragment
 import com.sunasterisk.coinqapp.utils.AppSharedPreferences
 import com.sunasterisk.coinqapp.utils.Language.ENGLISH_CODE
 import com.sunasterisk.coinqapp.utils.Language.LANGUAGE
+import com.sunasterisk.coinqapp.utils.checkInternet
 import com.sunasterisk.coinqapp.utils.setLanguage
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {

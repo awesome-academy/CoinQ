@@ -15,6 +15,7 @@ import com.sunasterisk.coinqapp.ui.coindetail.CoinDetailFragment
 import com.sunasterisk.coinqapp.ui.listcoin.adapter.ListCoinAdapter
 import com.sunasterisk.coinqapp.utils.CustomProgressBar
 import com.sunasterisk.coinqapp.utils.addFragment
+import com.sunasterisk.coinqapp.utils.checkInternet
 import com.sunasterisk.coinqapp.utils.showMessage
 
 class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContract.View {
@@ -40,7 +41,9 @@ class ListCoinFragment : BaseFragment<FragmentListCoinBinding>(), ListCoinContra
                 )
             )
         )
-        presenter?.getListCoin()
+        if (requireContext().checkInternet()) {
+            presenter?.getListCoin()
+        }
     }
 
     override fun initListeners() {
